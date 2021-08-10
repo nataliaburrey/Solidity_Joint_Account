@@ -13,148 +13,127 @@
 
 
 ## Table of content
-- [Overview of the project](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#overview-of-the-project) 
-- [Project goals](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#project-goals)
-- [Project steps](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#project-steps)
-- [Software version control](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#software-version-control)
-    - [Libraries](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#libraries)
-    - [Work with GitHub](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#work-with-github)
-    - [How to install](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#how-to-install)
-    - [Run Streamlit](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#run-streamlit)
-- [Helps recruiters](https://github.com/nataliaburrey/Paying_Salary_With_Crypto#helps-recruiters)
-- [License](https://github.com/nataliaburrey/blockchain_based_ledger#license)
+- [Overview of the project](https://github.com/nataliaburrey/Solidity_Joint_Account#overview-of-the-project) 
+- [Project goals](https://github.com/nataliaburrey/Solidity_Joint_Account#project-goals)
+- [Project steps](https://github.com/nataliaburrey/Solidity_Joint_Account#project-steps)
+- [Software version control](https://github.com/nataliaburrey/Solidity_Joint_Account#software-version-control)
+    - [Work with GitHub](https://github.com/nataliaburrey/Solidity_Joint_Account#work-with-github)
+    - [How to install](https://github.com/nataliaburrey/Solidity_Joint_Account#how-to-install)
+- [Helps recruiters](https://github.com/nataliaburrey/Solidity_Joint_Account#helps-recruiters)
+- [License](https://github.com/nataliaburrey/Solidity_Joint_Account#license)
 
 
 
 ## Overview of the project 
 
-In this Challenge, I was task to  complete the code that enables customers to send cryptocurrency payments to fintech professionals. To develop the code and test it out, we assume the perspective of a Fintech Finder customer who is using the application to find a fintech professional and pay them for their work.
-
-To complete this Challenge, I am using two Python files:
-1. [fintech_finder.py]()  contains the code associated with the web interface of the application. The code included in this file is compatible with the Streamlit library. 
-
-2. [crypto_wallet.py]() contains the Ethereum transaction functions. By using import statements, I integrate the crypto_wallet.py Python script into the Fintech Finder interface program that is found in the fintech_finder.py file. 
-
-
-Integrating these two files allow the user to automate the tasks associated with generating a digital wallet, accessing Ethereum account balances, and signing and sending transactions via Ethereum’s Kovan testnet.
+To automate the creation of joint savings accounts, I am creating Solidity smart contract that accepts two user addresses. These addresses will be able to control a joint savings account. Smart contract uses ether management functions to implement a financial institution’s requirements for providing the features of the joint savings account. These features consist of the ability to deposit and withdraw funds from the account.
 
 ## Project goals
 
-1. Generate a new Ethereum account instance by using your mnemonic seed phrase (which you created earlier in the module).
-
-2. Fetch and display the account balance associated with your Ethereum account address.
-
-3. Calculate the total value of an Ethereum transaction, including the gas estimate, that pays a Fintech Finder candidate for their work.
-
-4. Digitally sign a transaction that pays a Fintech Finder candidate, and send this transaction to the Kovan testnet.
-
-5. Review the transaction hash code associated with the validated blockchain transaction.
-
-6. Once you receive the transaction’s hash code, you will navigate to Kovan’s Etherscan (Links to an external site.) website to review the blockchain transaction details 
-
-
-## Project steps
-
-The steps for this Challenge are divided into the following sections:
-
-### Step 1: Import Ethereum Transaction Functions into the Fintech Finder Application
-
-##### Import generate_account, get_balance, and send_transaction from the crypto_wallet.py file. 
-
-<img width="638" alt="Screen Shot 2021-08-04 at 4 03 03 PM" src="https://user-images.githubusercontent.com/80833988/128266368-976d1237-2400-4e85-9940-b7f7ab2aed21.png">
-
-
-##### Call the generate_account function and store the account object. 
-
-<img width="641" alt="Screen Shot 2021-08-04 at 4 03 48 PM" src="https://user-images.githubusercontent.com/80833988/128266414-580b51f1-edf8-4ad8-856e-900a1aae9731.png">
-
-##### Call the get_balance function and pass it the Ethereum account.address. 
-
-<img width="540" alt="Screen Shot 2021-08-04 at 4 05 12 PM" src="https://user-images.githubusercontent.com/80833988/128266512-98987639-4727-4d10-88c9-afbb3e35a7ba.png">
 
 
 
+## Project steps 
+
+    ###Step 1: Create a Joint Savings Account Contract in Solidity
+   
+
+* From the provided starter code, open the Solidity file named joint_savings.sol in the Remix IDE.
+
+* Define a new contract named JointSavings.
+
+ <img width="321" alt="Screen Shot 2021-08-09 at 5 08 50 PM" src="https://user-images.githubusercontent.com/80833988/128789398-e5640b51-d786-479e-9b8c-d30435929a04.png">
+
+* Define the following variables in the new contract:
 
 
-### Step 2: Sign and Execute a Payment Transaction
-
-##### Calculate the transaction’s total wage. 
-
-<img width="649" alt="Screen Shot 2021-08-04 at 4 08 53 PM" src="https://user-images.githubusercontent.com/80833988/128266856-bc69f876-0114-4fa6-8d83-2f259d90ea49.png">
+<img width="697" alt="Screen Shot 2021-08-09 at 5 12 14 PM" src="https://user-images.githubusercontent.com/80833988/128789599-c14f0192-e54c-4549-9af3-0dffd1e6109a.png">
 
 
-##### Call the send_transaction function and pass it the account, candidate_address, and wage parameters. 
-<img width="620" alt="Screen Shot 2021-08-04 at 4 07 07 PM" src="https://user-images.githubusercontent.com/80833988/128266681-032720a8-1dbe-41c8-a11b-fb3fc2a4a9ed.png">
+* Define a function named withdraw that accepts two arguments: amount of type uint and recipient of type payable address. In this function, code the following:
+
+<img width="563" alt="Screen Shot 2021-08-09 at 5 12 43 PM" src="https://user-images.githubusercontent.com/80833988/128789630-27c9be2e-475e-4303-8690-68d9505ea341.png">
 
 
-##### Return the transaction hash from the send_transaction and display it on the application’s web interface. 
+* Define a require statements
 
-<img width="327" alt="Screen Shot 2021-08-04 at 4 23 43 PM" src="https://user-images.githubusercontent.com/80833988/128267978-dbeb83fb-1dcf-4a1b-9afa-95736b6b9d50.png">
-
-
-
-### Step 3: Inspect the Transaction on Etherscan
-
-##### Send a transaction using the Fintech Finder app
+<img width="856" alt="Screen Shot 2021-08-09 at 5 15 26 PM" src="https://user-images.githubusercontent.com/80833988/128789777-ed407e83-42b8-4ac5-b844-a7b5bc22e548.png">
 
 
-https://user-images.githubusercontent.com/80833988/128267117-7269b2d5-7874-43db-8938-e904530ff639.mov
+* Add an if statement to check if lastToWithdraw is not equal (!=) to recipient. If it’s not equal, set it to the current value of recipient.
+
+<img width="955" alt="Screen Shot 2021-08-09 at 5 15 44 PM" src="https://user-images.githubusercontent.com/80833988/128789795-ad459adc-0eb1-4cb7-9594-363e3fbdab6a.png">
+
+
+* Call the transfer function of the recipient, and pass it the amount to transfer as an argument. Set lastWithdrawAmount equal to amount. Set the contractBalance variable 
+
+<img width="869" alt="Screen Shot 2021-08-09 at 5 17 08 PM" src="https://user-images.githubusercontent.com/80833988/128789919-ad332dd0-dac8-4542-bfe0-ce92bd65e85e.png">
+
+
+* Define a public payable function named deposit. In this function, code the following: Set the contractBalance variable, Define a public function, set the values of accountOne and accountTwo 
+
+<img width="953" alt="Screen Shot 2021-08-09 at 5 18 32 PM" src="https://user-images.githubusercontent.com/80833988/128789984-87a53817-6da2-4737-b32b-c782e249f7cd.png">
+
+
+* Add a fallback function so that your contract can store ether that’s sent from outside the deposit function.
+
+<img width="612" alt="Screen Shot 2021-08-09 at 5 19 04 PM" src="https://user-images.githubusercontent.com/80833988/128790011-ec33d3c4-0417-4897-aa15-a8342247da1f.png">
+
+
+    Step 2: Compile and Deploy Your Contract in the JavaScript VM
+    
+<img width="597" alt="Screen Shot 2021-08-09 at 5 22 58 PM" src="https://user-images.githubusercontent.com/80833988/128790262-e18c08a1-9bfc-43ce-b20e-dd377644a611.png">
+
+
+    Step 3: Interact with Your Deployed Smart Contract
+
+To interact with your deployed smart contract, complete the following steps:
+
+* Use the setAccounts function to define the authorized Ethereum address that will be able to withdraw funds from your contract.
+
+<img width="286" alt="Screen Shot 2021-08-06 at 3 37 32 PM" src="https://user-images.githubusercontent.com/80833988/128790338-b2e2d118-4100-402d-becf-e9e73a12400c.png">
+
+
+* Test the deposit functionality of your smart contract by sending the following amounts of ether. After each transaction, use the contractBalance function to verify that the funds were added to your contract:
+
+<img width="301" alt="Screen Shot 2021-08-06 at 3 37 20 PM" src="https://user-images.githubusercontent.com/80833988/128790653-5ed92cc0-b570-4b9b-813d-b31dd9c4375a.png">
+
+
+##### Transaction 1: Send 1 ether as wei.
+<img width="282" alt="Screen Shot 2021-08-06 at 3 42 43 PM" src="https://user-images.githubusercontent.com/80833988/128791068-d56e7d57-7ee2-4fa4-908f-80ef772a8d16.png">
+
+
+##### Transaction 2: Send 10 ether as wei.
+
+<img width="304" alt="Screen Shot 2021-08-06 at 3 38 26 PM" src="https://user-images.githubusercontent.com/80833988/128791041-df3f299c-a551-4507-9b10-abae8016b2cb.png">
+
+
+##### Transaction 3: Send 5 ether.
+
+<img width="304" alt="Screen Shot 2021-08-06 at 3 38 58 PM" src="https://user-images.githubusercontent.com/80833988/128791163-0aca95b6-69b6-4d7d-a805-0b44c50e1303.png">
 
 
 
-##### Use the returned transaction hash to verify the transaction on Etherscan. 
+##### Once you’ve successfully deposited funds into your contract, test the contract’s withdrawal functionality by withdrawing 5 ether into accountOne and 10 ether into accountTwo. After each transaction, use the contractBalance function to verify that the funds were withdrawn from your contract. 
 
-<img width="1299" alt="Screen Shot 2021-08-04 at 3 59 28 PM" src="https://user-images.githubusercontent.com/80833988/128267224-a12df8fc-f472-4a6c-bd8c-c09426d17dd3.png">
+<img width="304" alt="Screen Shot 2021-08-06 at 3 38 26 PM" src="https://user-images.githubusercontent.com/80833988/128790747-c7329975-1371-4548-b620-7c42b8e63252.png">
 
-##### Include a screenshot of the provided transaction details. 
-
-
-<img width="848" alt="Screen Shot 2021-08-04 at 4 14 36 PM" src="https://user-images.githubusercontent.com/80833988/128267348-ed4419ef-5732-476e-a935-bc51418117fd.png">
+<img width="286" alt="Screen Shot 2021-08-06 at 3 43 14 PM" src="https://user-images.githubusercontent.com/80833988/128791090-e7ed5fb9-3c76-44c3-ad7e-2232acfb760f.png">
 
 
-##### Provide screenshots from Etherscan that show the sender’s address balance and history, and the recipient's address balance and history. 
-
-            ##### Sender
-            
-<img width="623" alt="Screen Shot 2021-08-04 at 4 20 53 PM" src="https://user-images.githubusercontent.com/80833988/128267805-de754db2-efd2-4a0b-8bbd-3a3a299d2bb2.png">
+##### Use the lastToWithdraw and lastWithdrawAmount functions to verify that the address and amount were correct.
 
 
-            ##### Recipient
+<img width="528" alt="Screen Shot 2021-08-06 at 3 43 57 PM" src="https://user-images.githubusercontent.com/80833988/128790588-e28232e2-dc19-40ec-9c48-a218b6f46c75.png">
 
-<img width="1299" alt="Screen Shot 2021-08-04 at 4 17 51 PM" src="https://user-images.githubusercontent.com/80833988/128268108-690be4b9-f04e-4c2c-a084-bb8d13dcace1.png">
 
 
 
 ## Software version control
 
+[Remix IDE](https://remix.ethereum.org) used to interact with Etherium blockchain.
 
-### Libraries 
-
-##### Following libraries were imported
-
-* crypto_wallet.py
-
-[
-<img width="658" alt="Screen Shot 2021-08-02 at 1 05 59 PM" src="https://user-images.githubusercontent.com/80833988/127917395-947eaeaf-7ade-471f-84ec-e96e3c8eafa4.png">
-](url)
-
-* fintech_finder.py
-
-```
-# Import the required libraries and dependencies
-
-
-import streamlit as st
-from dataclasses import dataclass
-from typing import Any, List
-
-```
-
-* Streamlit- is an open-source app framework for Machine Learning and Data Science teams.
-* Dataclasses-a utility tool to make structured classes specially for storing data. These classes hold certain properties and functions to deal specifically with the data and its representation.
-* Typing-provides runtime support for type hints. The most fundamental support consists of the types Any, Union, Tuple, Callable, TypeVar, and Generic.
-
-
+Remix - Ethereum IDE is an open source web and desktop application. It fosters a fast development cycle and has a rich set of plugins with intuitive GUIs. Remix is used for the entire journey of contract development as well as being a playground for learning and teaching Ethereum.
 
 ### Work with GitHub
 * Repository created on GitHub
@@ -170,24 +149,11 @@ from typing import Any, List
 ```
 cd desktop
 
-git clone https://github.com/nataliaburrey/Paying_Salary_With_Crypto.git
+git clone https://github.com/nataliaburrey/Solidity_Joint_Account.git
 ```
 
-now you can find the repo Paying_Salary_With_Crypto on your desktop
+now you can find the folder Solidity_Joint_Account on your desktop
 
-
-
-
-### Run streamlit
-
-1. In the terminal, navigate to the repository folder
-
-2. In the terminal, run the Streamlit application by running the command
-
-```
-streamlit run fintech_finder.py
-
-```
 
 
 
@@ -198,7 +164,7 @@ The project was created in collaboration with Berkeley Fintech Bootcamp team
 
 ## License
 
-[MIT](https://github.com/nataliaburrey/Paying_Salary_With_Crypto/blob/main/LICENSE)
+[MIT](https://github.com/nataliaburrey/Solidity_Joint_Account/blob/main/LICENSE)
 
 
 
